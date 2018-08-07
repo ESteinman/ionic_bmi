@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
 
 
 
@@ -22,7 +22,7 @@ export class CalculatorPage {
     if (this.weight > 0 && this.height > 0) {
       let finalBmi = this.weight / (this.height / 100 * this.height / 100);
       this.bmiValue = parseFloat(finalBmi.toFixed(2));
-      this.setBMImessage();
+      this.setBMIMessage();
     }
   }
 
