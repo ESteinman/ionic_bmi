@@ -21,7 +21,7 @@ export class CalculatorPage {
   calculateBMI(){
     if (this.weight > 0 && this.height > 0) {
       let finalBmi = this.weight / (this.height / 100 * this.height / 100);
-      this.bmiValue = parseFloat(finalBmi.toFixed(2));
+      this.bmiValue = parseFloat(finalBmi.toFixed(2))
       this.setBMIMessage();
     }
   }

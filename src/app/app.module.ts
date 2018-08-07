@@ -10,7 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { CalculatorPage } from '../pages/calculator/calculator'
+import { CalculatorPage } from '../pages/calculator/calculator';
 
 @NgModule({
   declarations: [
