@@ -23,4 +23,7 @@ describe ('AppComponent', () => {
         expect(component).toBeTruthy();
         expect(component instanceof MyApp).toEqual(true);
     });
+
+    it('')
+
 })
