@@ -70,14 +70,14 @@ describe("CalculatorPage", () => {
       });
 
       it('setBMImessage if bmiValue is over 25 and under 30', () => {
-        component.bmiValue = 22;
+        component.bmiValue = 27;
         component.setBMIMessage();
 
         expect(component.bmiMessage).toEqual('Overweight')
       });
 
       it('setBMImessage if bmiValue is over 30', () => {
-        component.bmiValue = 22;
+        component.bmiValue = 31;
         component.setBMIMessage();
 
         expect(component.bmiMessage).toEqual('Obese')
