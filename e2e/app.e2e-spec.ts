@@ -1,21 +1,30 @@
-import { Page } from './app.po';
-
+import { by, browser, element } from 'protractor'
 describe('App', () => {
-  let page: Page;
-
-  beforeEach(() => {
-    page = new Page();
-  });
-
   describe('default screen', () => {
     beforeEach(() => {
-      page.navigateTo('/');
+      browser.get('/');
     });
 
-     it('should have a title saying Ionic App', () => {
-      page.getTitle().then(title => {
-        expect(title).toEqual('Ionic App');
-      });
+    it('App should have a title', () => {
+      expect(browser.getTitle()).toContain('Ionic App')
     });
-  })
+
+    it('Should have a Calculator Tab', () => {
+        expect(element(by.css('[aria-controls="tabpanel-t0-0"]'))
+            .getAttribute('innerHTML'))  
+            .toContain('Calculator');
+        });
+    
+    it('the calculator tab is displayed by default', () => {
+    expect(element(by.css('[aria-selected=true] .tab-button-text')) // First we find the selected tab  
+        .getAttribute('innerHTML')) // Then we grab the html content
+        .toContain('Calculator'); // Then we check if it matches our expectations
+    });
+        
+    it('should have a title saying Calculator', () => {
+    expect(element(by.css('.toolbar-title'))
+        .getAttribute('innerHTML'))
+        .toContain('Calculator');
+    });
+    })
 });

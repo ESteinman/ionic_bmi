@@ -1,29 +1,35 @@
 import { MyApp } from './app.component'
-import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing'
 import { IonicModule, Platform } from 'ionic-angular';
+import { PlatformMock, StatusBarMock, SplashScreenMock } from 'ionic-mocks'
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { TabsPage } from '../pages/tabs/tabs';
 
-describe ('AppComponent', () => {
-    let component;
+describe('AppComponent', () => {
+  let fixture, component;
 
-    beforeEach(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-        declarations: [MyApp],
-        imports: [
-            IonicModule.forRoot(MyApp)
-        ],
-        providers: [],
-    });
+      declarations: [
+        MyApp
+      ],
+      imports: [
+        IonicModule.forRoot(MyApp)
+      ],
+      providers: [
+        { provide: Platform, useFactory: () => PlatformMock.instance() },
+        { provide: StatusBar, useFactory: () => StatusBarMock.instance() },
+        { provide: SplashScreen, useFactory: () => SplashScreenMock.instance() }
+      ]
+    })
 
-    it('should create the app', () => {
-        expect(component).toBeTruthy();
-        expect(component instanceof MyApp).toEqual(true);
-    });
+    fixture = TestBed.createComponent(MyApp);
+    component = fixture.componentInstance;
+  })
 
-    it('')
-
+  it('should create the app', () => {
+    expect(component).toBeTruthy();
+    expect(component instanceof MyApp).toEqual(true);
+  });
 })
